@@ -6,7 +6,10 @@ class MinStack:
         self.min_stack = [] # Green
         
     def pop(self):
-        self.stack.pop()
+        if self.stack:
+            self.stack.pop()
+        if self.min_stack:
+            self.min_stack.pop()
         
     def push(self, n):
         self.stack.append(n)
@@ -19,10 +22,16 @@ class MinStack:
             self.min_stack.append(n)
     
     def peek(self):
-        return self.stack[-1]
+        if self.stack:
+            return self.stack[-1]
+        else:
+            return -1
         
     def getMin(self):
-        return self.min_stack[-1]
+        if self.min_stack:
+            return self.min_stack[-1]
+        else:
+            return -1
 
 def main():
     my_stack = MinStack()
