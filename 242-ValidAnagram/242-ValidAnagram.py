@@ -1,4 +1,4 @@
-# Last updated: 7/8/2025, 9:41:38 PM
+# Last updated: 7/8/2025, 9:42:04 PM
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
 
@@ -11,10 +11,7 @@ class Solution:
             if i not in letter_hash:
                 letter_hash[i] = 1
             else:
-                #print(letter_hash)
-                #print(i)
                 letter_hash[i] = letter_hash[i] + 1
-                #print(letter_hash)
 
         for j in t:
             if j in letter_hash:
@@ -28,6 +25,5 @@ class Solution:
         if all(not values for values in letter_hash.values()):
             return True
         else:
-            print('ending here')
             return False
         
