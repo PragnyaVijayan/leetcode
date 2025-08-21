@@ -1,9 +1,6 @@
-# Last updated: 8/21/2025, 11:49:24 AM
+# Last updated: 8/21/2025, 11:54:54 AM
 import pandas as pd
 
-def big_countries(world: pd.DataFrame) -> pd.DataFrame:
-    big = world[(world['area'] >= 3000000) | (world['population'] >= 25000000)][['name', 'population', 'area']]
-    #print(big.head())
+def find_products(products: pd.DataFrame) -> pd.DataFrame:
 
-    return big
-    
+    return products[(products['low_fats'] == 'Y') & (products['recyclable'] == 'Y')][['product_id']]
