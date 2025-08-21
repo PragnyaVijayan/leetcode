@@ -1,9 +1,10 @@
-# Last updated: 8/21/2025, 12:04:17 PM
+# Last updated: 8/21/2025, 12:20:33 PM
 import pandas as pd
 
-def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
-    merged_df = pd.merge(customers, orders, left_on='id', right_on='customerId', how='left')
-    cust_wo_order = merged_df[merged_df['id_y'].isna()]
-    cust_wo_order = cust_wo_order.rename(columns={'name': 'Customers'})
-    return cust_wo_order[['Customers']]
+def article_views(views: pd.DataFrame) -> pd.DataFrame:
+    self_views = views[views['author_id'] == views['viewer_id']]
+    result = self_views.groupby(['author_id']).first().reset_index()
+    return result.rename(columns={'author_id': 'id'})[['id']]
+
+
     
