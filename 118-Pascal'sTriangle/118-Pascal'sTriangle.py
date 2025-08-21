@@ -1,44 +1,13 @@
-# Last updated: 8/21/2025, 4:50:24 PM
-class Solution(object):
-    def generate(self, numRows):
-        """
-        :type numRows: int
-        :rtype: List[List[int]]
-        """
+# Last updated: 8/21/2025, 4:57:29 PM
+class Solution:
+    def generate(self, numRows: int) -> list[list[int]]:
+        pascal = []
 
-        '''
-            - for the firt two it has 1 & 1,1 respectively
-            - following that, 1's on each end
-            - sliding window of 2
-        '''
+        for i in range(numRows):
+            row = [1] * (i + 1) 
+            #print(row)
+            for j in range(1, i):
+                row[j] = pascal[i - 1][j - 1] + pascal[i - 1][j]
+            pascal.append(row)
 
-        triangle = []
-
-        for i in range(1, numRows + 1):
-            j = 0
-            row_numbers = []
-            while j < i:
-                row_numbers.append(1)
-                j += 1
-            triangle.append(row_numbers)
-            #print(triangle)
-
-        for i in range(2, numRows):
-            previous_row_length = i
-
-            temp = []
-            j = 0
-            while j < previous_row_length - 1:
-                #print(triangle[i-1][j], triangle[i-1][j+1])
-                #temp.append(triangle[i-1][j] + triangle[i-1][j+1])
-                triangle[i][j+1] = triangle[i-1][j] + triangle[i-1][j+1]
-                j += 1
-            
-            #print(i)
-            #print(temp)
-            #print(triangle)
-
-        return triangle
-
-
-        
+        return pascal
