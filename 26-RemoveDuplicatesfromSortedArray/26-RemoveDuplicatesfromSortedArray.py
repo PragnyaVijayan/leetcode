@@ -1,4 +1,4 @@
-# Last updated: 8/21/2025, 11:00:52 PM
+# Last updated: 8/21/2025, 11:01:27 PM
 class Solution(object):
     def removeDuplicates(self, nums):
         """
@@ -11,13 +11,7 @@ class Solution(object):
         - slow pointer will be before duplicates. can insert there
         - if fast pointer reaches end of loop, everything between slow 
             and fast pointer is '_'
-
-
         '''
-
-        fast_pointer = 0
-        slow_pointer = 0
-        original_len = len(nums)
 
         '''
         1  1  2  2  3  4
@@ -38,9 +32,11 @@ class Solution(object):
         1  2  3  4  3  4
                  |     |
 
-
-
         '''
+
+        fast_pointer = 0
+        slow_pointer = 0
+        original_len = len(nums)
         
         #print(nums)
 
