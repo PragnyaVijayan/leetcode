@@ -1,26 +1,32 @@
-# Last updated: 8/18/2025, 11:38:05 PM
-class Solution(object):
-    def strStr(self, haystack, needle):
-        """
-        :type haystack: str
-        :type needle: str
-        :rtype: int
-        """
+# Last updated: 8/28/2025, 12:53:10 AM
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 
-        len_needle = len(needle)
-        i = 0
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        '''
+            for each cycle, fastpointer does next 2 times and slowpointer does it once
+            if at any point fastpointer == slowpointer, then there is a cycle
 
-        if len(haystack) == len_needle:
-            if haystack == needle:
-                return 0
+        '''
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
         
-        while i <= len(haystack) - len_needle:
-            sub_haystack = haystack[i:i+len_needle]
-            if sub_haystack != needle:
-                i += 1
-            else:
-                return i
-        
-        return -1
+        if head is None:
+            return False
 
-            
+        slow_pointer = head
+        fast_pointer = head
+
+        while fast_pointer and fast_pointer.next:
+            slow_pointer = slow_pointer.next
+            fast_pointer = fast_pointer.next.next
+
+            if slow_pointer == fast_pointer:
+                return True
+
+        return False
+
