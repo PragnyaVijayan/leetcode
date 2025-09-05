@@ -1,4 +1,4 @@
-# Last updated: 9/5/2025, 12:51:41 AM
+# Last updated: 9/5/2025, 2:47:10 PM
 class Solution(object):
     def twoSum(self, nums, target):
         """
@@ -7,10 +7,33 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        for i in range(0, len(nums)-1):
-            for j in range(i+1, len(nums)):
-                if nums[i] + nums[j] == target:
-                    return [i,j]
+        # for i in range(0, len(nums)-1):
+        #     for j in range(i+1, len(nums)):
+        #         if nums[i] + nums[j] == target:
+        #             return [i,j]
                 
+        # return None
+
+        nums_map = {}
+
+        for i, num in enumerate(nums):
+            if num not in nums_map:
+                nums_map[num] = [i]
+            else:
+                nums_map[num].append(i)
+
+
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in nums_map:
+                for j in nums_map[complement]:
+                    if i != j:
+                        return [i, j]
+        
         return None
+
+
+
+
+
         
