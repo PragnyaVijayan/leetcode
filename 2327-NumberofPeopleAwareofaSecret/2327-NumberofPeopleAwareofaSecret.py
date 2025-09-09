@@ -1,4 +1,4 @@
-# Last updated: 9/8/2025, 10:37:06 PM
+# Last updated: 9/8/2025, 10:37:49 PM
 class Solution(object):
     def areaOfMaxDiagonal(self, dimensions):
         """
@@ -10,13 +10,11 @@ class Solution(object):
         for dimension in dimensions:
             length = sqrt(dimension[0] * dimension[0] + dimension[1] * dimension[1])
             diagonal_length.append(length)
-            
+
             if length > max_length:
                 max_length = length
 
         area = []
-        print(max_length)
-        #max_length = max(diagonal_length)
         
         for i, diagonal_len in enumerate(diagonal_length):
             if diagonal_len == max_length:
