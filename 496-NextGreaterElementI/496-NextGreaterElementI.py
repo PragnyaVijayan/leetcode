@@ -1,4 +1,4 @@
-# Last updated: 9/6/2025, 10:35:07 PM
+# Last updated: 9/13/2025, 10:08:39 PM
 class Solution(object):
     def nextGreaterElement(self, nums1, nums2):
         """
@@ -6,42 +6,33 @@ class Solution(object):
         :type nums2: List[int]
         :rtype: List[int]
         """
-
-        '''
-            step 1: implement a monotonic stack for nums2 (called next_greatest)
-            step 2: for each element in nums1, lookup next_greatest
-
-        '''
-
-        next_greatest = []
-        stack = []
-        nums2 = nums2[::-1]
-
-        for num in nums2:
-            while stack and stack[-1] <= num:
-                stack.pop()
-            
-            if not stack:
-                next_greatest.append(-1)
-            else:
-                next_greatest.append(stack[-1])
-            
-            stack.append(num)
-
-        print(nums2)
-        print(stack)
-        print(next_greatest)
-
-        ans = []
-        for num in nums1:
-            #print(num)
-            index = nums2.index(num)
-            #print(index)
-            temp = next_greatest[index]
-            #print(temp)
-            ans.append(temp)
+        nums2_index = []
+        for num1 in nums1:
+            nums2_index.append(nums2.index(num1))
         
-        return ans
+        #print(nums2_index)
+        result = []
+        
+        for i in nums2_index:
+            j = i + 1
+            #print(i, j)
+            result_count = len(result)
+            while j < len(nums2):
+                #print(nums2[j], nums2[i])
+                if nums2[j] > nums2[i]:
+                    #print('inside if')
+                    result.append(nums2[j])
+                    break
+                j += 1
+
+            if len(result) == result_count:
+                result.append(-1)
+
+            #print('result: ' , result)
+
+        return result
+
+            
 
 
 
