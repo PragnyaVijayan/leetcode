@@ -1,20 +1,18 @@
-# Last updated: 9/15/2025, 11:56:12 PM
+# Last updated: 9/16/2025, 12:00:27 AM
 class Solution(object):
-    def mostWordsFound(self, sentences):
+    def countDigits(self, num):
         """
-        :type sentences: List[str]
+        :type num: int
         :rtype: int
         """
 
-        number_of_words = []
-        for sentence in sentences:
-            word_list = sentence.strip().split()
-            #print(word_list)
-            number_of_words.append(len(word_list))
-        
-        max_words = max(number_of_words)
-        
-        return max_words
-        
+        digits = [int(digit) for digit in str(num)]
+        #print(digits)
 
+        count = 0
+        for i in digits:
+            if num % i == 0:
+                count += 1
+
+        return count
         
