@@ -1,14 +1,20 @@
-# Last updated: 9/15/2025, 11:52:40 PM
+# Last updated: 9/15/2025, 11:56:12 PM
 class Solution(object):
-    def checkIfPangram(self, sentence):
+    def mostWordsFound(self, sentences):
         """
-        :type sentence: str
-        :rtype: bool
+        :type sentences: List[str]
+        :rtype: int
         """
 
-        letters = set(sentence)
-        if len(letters) == 26:
-            return True
-        else:
-            return False
+        number_of_words = []
+        for sentence in sentences:
+            word_list = sentence.strip().split()
+            #print(word_list)
+            number_of_words.append(len(word_list))
+        
+        max_words = max(number_of_words)
+        
+        return max_words
+        
+
         
