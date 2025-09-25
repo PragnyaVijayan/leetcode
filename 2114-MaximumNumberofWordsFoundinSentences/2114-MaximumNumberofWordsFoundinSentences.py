@@ -1,19 +1,15 @@
-# Last updated: 9/24/2025, 11:49:34 PM
+# Last updated: 9/24/2025, 11:51:31 PM
 class Solution(object):
-    def mostWordsFound(self, sentences):
+    def numberOfEmployeesWhoMetTarget(self, hours, target):
         """
-        :type sentences: List[str]
+        :type hours: List[int]
+        :type target: int
         :rtype: int
         """
+        count = 0
+        for hour in hours:
+            if hour >= target:
+                count += 1
 
-        max_count = 0
-
-        for sentence in sentences:
-            word_list = sentence.strip().split()
-            count = len(word_list)
-
-            if max_count < count:
-                max_count = count
-        
-        return max_count
+        return count
         
